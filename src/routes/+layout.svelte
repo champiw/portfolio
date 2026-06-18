@@ -5,5 +5,22 @@
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+
+	<script>
+		(function () {
+			const theme = localStorage.getItem('theme');
+
+			const isLight = theme === 'light';
+
+			if (isLight) {
+				document.documentElement.classList.add('light');
+			} else {
+				document.documentElement.classList.remove('light');
+			}
+		})();
+	</script>
+
+	<link rel="icon" href={favicon} />
+</svelte:head>
 {@render children()}

@@ -2,9 +2,7 @@
 	let { data } = $props();
 </script>
 
-<h1>Home</h1>
-
-<h2>Latest Posts</h2>
+<h2>Latest Posts: </h2>
 
 <ul>
 	{#each data.posts as post}
@@ -16,6 +14,8 @@
 		</li>
 	{/each}
 </ul>
+
+<h2>Latest Projects: </h2>
 
 <ul>
 	{#each data.projects as project}
