@@ -1,7 +1,9 @@
 <script>
 	import pfp from '$lib/assets/chen_recorte.jpg';
+	import { Moon, Sun } from '@lucide/svelte';
 
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 
 	let isLight = $state(false);
 
@@ -22,46 +24,71 @@
 		localStorage.setItem('theme', isLight ? 'light' : 'dark');
 	}
 
+	const navClass = (active) =>
+		`border px-2.5 py-1 transition-colors hover:text-(--accent)
+		${active ? 'text-(--accent)' : ''}`;
+
 	let { children } = $props();
 </script>
 
-<div class="min-h-screen flex flex-col items-center p-6 bg-(--bg) text-(--text)">
+<div class="min-h-screen flex flex-col items-center p-4 sm:p-6 bg-(--bg) text-(--text)">
 
-	<div class="w-full max-w-4xl border border-(--border) p-10 my-6 sm:my-10">
+	<div class="w-full max-w-4xl border border-(--border) p-5 sm:p-10 my-4 sm:my-10">
 
-		<header class="flex items-center justify-between border-b border-(--border) pb-6">
+		<header
+			class="flex flex-col gap-4 border-b border-(--border) pb-6 sm:flex-row sm:items-center sm:justify-between"
+		>
 
-			<!-- Left: identity -->
-			<div class="flex items-center gap-4">
+			<a href="/en" class="flex items-center gap-3 sm:gap-4">
 				<img
 					src={pfp}
 					alt=""
 					aria-hidden="true"
-					class="h-16 w-16 rounded-full object-cover"
+					class="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
 				/>
 
-				<span class="text-2xl font-bold">
+				<span class="text-xl sm:text-2xl font-bold">
 					Sergio Bértolo
 				</span>
-			</div>
+			</a>
 
-			<!-- Right: controls -->
-			<div class="flex items-center gap-4">
+			<div
+				class="flex flex-wrap items-center gap-3 sm:gap-4"
+			>
 
-				<button
-					class="text-sm text-(--muted) hover:text-(--text) transition"
-					aria-label="Toggle theme"
-					onclick={toggleTheme}
-				>
-					{isLight ? '🌞' : '🌙'}
-				</button>
+				<nav class="flex flex-wrap gap-2 text-sm">
+					<button
+						class="border px-2.5 py-1 transition-colors hover:text-(--accent)"
+						aria-label="Toggle theme"
+						onclick={toggleTheme}
+					>
+						{#if isLight}
+							<Sun size={16} />
+						{:else}
+							<Moon size={16} />
+						{/if}
+					</button>
+					<a
+						class="border px-2.5 py-1 {navClass(page.url.pathname === ('/en'))}"
+						href="/en"
+					>
+						home
+					</a>
 
-				<nav class="flex gap-3 text-sm">
-					<a class="hover:text-(--text) text-sm border px-2.5 py-1" href="/en">home</a>
-					<a class="hover:text-(--text) text-sm border px-2.5 py-1" href="/en/blog">blog</a>
-					<a class="hover:text-(--text) text-sm border px-2.5 py-1" href="/en/projects">projects</a>
+					<a
+						class="border px-2.5 py-1 {navClass(page.url.pathname.startsWith('/en/blog'))}"
+						href="/en/blog"
+					>
+						blog
+					</a>
+
+					<a
+						class="border px-2.5 py-1 {navClass(page.url.pathname.startsWith('/en/projects'))}"
+						href="/en/projects"
+					>
+						projects
+					</a>
 				</nav>
-
 			</div>
 
 		</header>
