@@ -72,21 +72,28 @@
 						class="border px-2.5 py-1 {navClass(page.url.pathname === ('/en'))}"
 						href="/en"
 					>
-						home
+						Home
 					</a>
 
 					<a
 						class="border px-2.5 py-1 {navClass(page.url.pathname.startsWith('/en/blog'))}"
 						href="/en/blog"
 					>
-						blog
+						Blog
 					</a>
 
 					<a
 						class="border px-2.5 py-1 {navClass(page.url.pathname.startsWith('/en/projects'))}"
 						href="/en/projects"
 					>
-						projects
+						Projects
+					</a>
+
+					<a
+						class="border px-2.5 py-1 {navClass(page.url.pathname.startsWith('/en/contact'))}"
+						href="/en/contact"
+					>
+						Contact
 					</a>
 				</nav>
 			</div>
