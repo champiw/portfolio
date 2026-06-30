@@ -1,6 +1,6 @@
 ---
-title: "first post"
-description: "first post aa"
+title: "primer post"
+description: "primer post aa"
 date: "2026-06-16"
 tags:
     - svelte

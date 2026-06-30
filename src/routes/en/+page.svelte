@@ -28,34 +28,6 @@
 		</ul>
 	</div>
 
-	<!-- Posts -->
-	<div class="space-y-4">
-
-		<h2 class="text-2xl font-bold text-(--accent)">
-			Latest Posts
-		</h2>
-
-		<ul class="space-y-3">
-			{#each data.posts as post}
-				<li>
-					<a
-						class="block border border-(--border) p-4 hover:border-(--accent) transition-colors"
-						href={`/en/blog/${post.slug}`}
-					>
-						<h3 class="font-semibold text-(--text)">
-							{post.title}
-						</h3>
-
-						<p class="text-sm text-(--muted)">
-							{post.description}
-						</p>
-					</a>
-				</li>
-			{/each}
-		</ul>
-
-	</div>
-
 	<!-- Projects -->
 	<div class="space-y-4">
 
@@ -76,6 +48,34 @@
 
 						<p class="text-sm text-(--muted)">
 							{project.description}
+						</p>
+					</a>
+				</li>
+			{/each}
+		</ul>
+
+	</div>
+
+	<!-- Posts -->
+	<div class="space-y-4">
+
+		<h2 class="text-2xl font-bold text-(--accent)">
+			Latest Posts
+		</h2>
+
+		<ul class="space-y-3">
+			{#each data.posts as post}
+				<li>
+					<a
+						class="block border border-(--border) p-4 hover:border-(--accent) transition-colors"
+						href={`/en/blog/${post.slug}`}
+					>
+						<h3 class="font-semibold text-(--text)">
+							{post.title}
+						</h3>
+
+						<p class="text-sm text-(--muted)">
+							{post.description}
 						</p>
 					</a>
 				</li>

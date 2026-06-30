@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 :root {
 	--bg: #282828;
@@ -21,3 +22,25 @@
 
 	--accent: #d79921;
 }
+
+.light .prose-invert,
+.light .prose-invert p,
+.light .prose-invert h1,
+.light .prose-invert h2,
+.light .prose-invert h3,
+.light .prose-invert h4,
+.light .prose-invert h5,
+.light .prose-invert h6,
+.light .prose-invert li,
+.light .prose-invert strong,
+.light .prose-invert td,
+.light .prose-invert th,
+.light .prose-invert figcaption,
+.light .prose-invert code,
+
+.light .prose-invert pre {color: var(--text);}
+.light .prose-invert a {color: var(--accent);}
+.light .prose-invert blockquote {color: var(--muted); border-color: var(--border);}
+.light .prose-invert table {border-color: var(--border);}
+.light .prose-invert thead th {color: var(--text);}
+.light .prose-invert tbody td {border-color: var(--border);}

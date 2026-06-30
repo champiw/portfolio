@@ -1,13 +1,13 @@
 ---
-title: "first post"
-description: "first post aa"
+title: "second post"
+description: "second post aa"
 date: "2026-06-16"
 tags:
-    - svelte
+    - ww
     - webdev
 ---
 
-# My first post
+# My second post
 
 This is a post
 
