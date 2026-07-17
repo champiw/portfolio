@@ -48,7 +48,7 @@
 				/>
 
 				<span class="text-xl sm:text-2xl font-bold">
-					Sergio Bértolo
+					Champi
 				</span>
 			</a>
 

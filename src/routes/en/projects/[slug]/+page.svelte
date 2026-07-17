@@ -42,7 +42,7 @@
 					rel="noreferrer"
 					class="text-(--accent) hover:underline"
 				>
-					Code
+					GitHub
 				</a>
 			{/if}
 

@@ -5,8 +5,8 @@ date: "2026-06-16"
 tags:
   - svelte
   - tailwind
-github: "https://github.com/user/repo"
-demo: "https://example.com"
+repo: "https://github.com/user/repo"
+link: "https://example.com"
 featured: true
 ---
 
