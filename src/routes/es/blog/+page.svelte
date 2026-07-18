@@ -93,7 +93,7 @@
 
 			<li>
 				<a
-					href={`/en/blog/${post.slug}`}
+					href={`/es/blog/${post.slug}`}
 					class="block border border-(--border) p-4 transition-colors hover:border-(--accent)"
 				>
 
