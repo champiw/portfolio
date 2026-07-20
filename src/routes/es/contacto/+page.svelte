@@ -2,18 +2,18 @@
 	const links = [
 		{
 			label: 'Email',
-			value: 'sergio@example.com',
-			href: 'mailto:sergio@example.com'
+			value: 'sergio.bertolo.castro@gmail.com',
+			href: 'mailto:sergio.bertolo.castro@gmail.com'
 		},
 		{
 			label: 'GitHub',
-			value: 'github.com/yourusername',
-			href: 'https://github.com/yourusername'
+			value: 'github.com/champiw',
+			href: 'https://github.com/champiw'
 		},
 		{
 			label: 'LinkedIn',
-			value: 'linkedin.com/in/yourusername',
-			href: 'https://www.linkedin.com/in/yourusername'
+			value: 'linkedin.com/in/sergio-bértolo-castro',
+			href: 'https://www.linkedin.com/in/sergio-bértolo-castro'
 		}
 	];
 </script>
