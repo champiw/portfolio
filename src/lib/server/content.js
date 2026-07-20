@@ -1,50 +1,55 @@
-import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
-const BASE_PATH = path.join(process.cwd(), "content");
+const modules = import.meta.glob("/src/content/**/*.md", {
+	eager: true,
+	query: "?raw",
+	import: "default"
+});
 
-function getContentSlugs(type) {
-    return fs.readdirSync(path.join(BASE_PATH, type));
-}
+function getModule(type, slug, lang) {
+	const key = `/src/content/${type}/${slug}/${lang}.md`;
+	const file = modules[key];
 
-function loadContent(type, slug, lang) {
-    const filePath = path.join(BASE_PATH, type, slug, `${lang}.md`);
+	if (!file) {
+		throw new Error(`Content not found: ${key}`);
+	}
 
-    const file = fs.readFileSync(filePath, "utf-8");
-    const { data, content } = matter(file);
-
-    return {
-        slug,
-        type,
-        lang,
-        ...data,
-        content: marked(content)
-    }
+	return file;
 }
 
 export function getAllContent(type, lang = "en") {
-  const slugs = getContentSlugs(type);
+	const prefix = `/src/content/${type}/`;
 
-  const items = slugs.map((slug) => {
-    const item = loadContent(type, slug, lang);
+	return Object.entries(modules)
+		.filter(([file]) => file.startsWith(prefix) && file.endsWith(`/${lang}.md`))
+		.map(([file, content]) => {
+			const slug = file.split("/")[4];
+			const { data } = matter(content);
 
-    return {
-      slug: item.slug,
-      type: item.type,
-      title: item.title,
-      description: item.description,
-      date: item.date,
-      tags: item.tags || [],
-      github: item.github || null,
-      demo: item.demo || null
-    };
-  });
-
-  return items;
+			return {
+				slug,
+				type,
+				title: data.title,
+				description: data.description,
+				date: data.date,
+				tags: data.tags ?? [],
+				github: data.github ?? null,
+				demo: data.demo ?? null
+			};
+		});
 }
 
 export function getContent(type, slug, lang = "en") {
-    return loadContent(type, slug, lang)
+	const file = getModule(type, slug, lang);
+
+	const { data, content } = matter(file);
+
+	return {
+		slug,
+		type,
+		lang,
+		...data,
+		content: marked.parse(content)
+	};
 }
