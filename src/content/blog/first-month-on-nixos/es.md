@@ -1,6 +1,6 @@
 ---
 title: "Mi primer mes en NixOS"
-description: "Cómo pasé de usar Windows directamente a usar NixOS en todas mis computadoras."
+description: "Cómo pasé de usar Windows, a usar NixOS en todos mis ordenadores."
 date: "2026-07-4"
 tags:
     - NixOS
