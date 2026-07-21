@@ -9,7 +9,7 @@ tags:
 
 ## What is NixOS
 
-NixOS is a Linux distribution built around the Nix package manager. Instead of configuring your system by manually editing files or installing packages one by one, you describe your entire system in a configuration file. NixOS then builds your system from that configuration, making it easy to reproduce, update. Each time you build your system it creates a new system generation, and you can roll back to a previous one if something goes wrong.
+NixOS is a Linux distribution built around the Nix package manager. Instead of configuring your system by manually editing files or installing packages one by one, you describe your entire system in a configuration file. NixOS then builds your system from that configuration, making it easy to reproduce and update. Each time you build your system it creates a new system generation, and you can roll back to a previous one if something goes wrong.
 
 ## Previous Linux distributions
 
