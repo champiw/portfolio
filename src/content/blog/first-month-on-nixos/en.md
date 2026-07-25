@@ -17,7 +17,7 @@ Personally i've always had a surface level understanding of Linux. I've never le
 
 I've used Debian during my classes, where i learned how to use the terminal and some basics of linux, users and permissions, file structure etc. 
 
-Next i dualbooted Arch, but using soem install script that i found on GitHub, which meant that i didnt know what was installed or what was going on most of the time.
+Next i dualbooted Arch, but using some install script that i found on GitHub, which meant that i didnt know what was installed or what was going on most of the time.
 
 After that i decided to delete Arch and have a simple Debian, which i was more confident to use when i needed to.
 
