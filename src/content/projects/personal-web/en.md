@@ -7,7 +7,6 @@ tags:
     - Tailwind
     - Web Development
 repo: "https://github.com/champiw/portfolio"
-link: "https://your-domain.dev"
 ---
 
 ## Objectives with this page
