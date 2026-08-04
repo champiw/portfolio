@@ -33,7 +33,7 @@
 
 <div class="min-h-screen flex flex-col items-center p-4 sm:p-6 bg-(--bg) text-(--text)">
 
-	<div class="w-full max-w-4xl border border-(--border) p-5 sm:p-10 my-4 sm:my-10">
+	<div class="w-full max-w-5xl border border-(--border) p-5 sm:p-10 my-4 sm:my-10">
 
 		<header
 			class="flex flex-col gap-4 border-b border-(--border) pb-6 sm:flex-row sm:items-center sm:justify-between"

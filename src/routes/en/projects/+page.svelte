@@ -5,11 +5,14 @@
 	let selectedTags = $state([]);
 
 	// List of all tags
-	const tags = [
-		...new Set(
-			data.projects.flatMap((project) => project.tags ?? [])
-		)
-	].sort();
+	const tags = $derived.by(
+		() =>
+			[
+				...new Set(
+					data.projects.flatMap((project) => project.tags ?? [])
+				)
+			].sort()
+	);
 
 	function toggleTag(tag) {
 		if (selectedTags.includes(tag)) {

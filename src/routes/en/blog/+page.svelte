@@ -5,11 +5,14 @@
 	let selectedTags = $state([]);
 
     // List of all tags
-	const tags = [
-		...new Set(
-			data.posts.flatMap((post) => post.tags ?? [])
-		)
-	].sort();
+	const tags = $derived.by(
+		() =>
+			[
+				...new Set(
+					data.posts.flatMap((post) => post.tags ?? [])
+				)
+			].sort()
+	);
 
 	function toggleTag(tag) {
 		if (selectedTags.includes(tag)) {
