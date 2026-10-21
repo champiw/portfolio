@@ -8,6 +8,53 @@ const modules = import.meta.glob("/src/content/**/*.md", {
 	import: "default"
 });
 
+const images = import.meta.glob(
+	"/src/content/**/*.{png,jpg,jpeg,webp,avif,gif,svg}",
+	{
+		eager: true,
+		query: "?url",
+		import: "default"
+	}
+);
+
+function escapeHtml(value) {
+	return String(value)
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;");
+}
+
+function resolveImage(href, type, slug) {
+	const isAbsolute =
+		/^[a-z][a-z0-9+.-]*:/i.test(href) ||
+		href.startsWith("//") ||
+		href.startsWith("/") ||
+		href.startsWith("#");
+
+	if (isAbsolute) {
+		return href;
+	}
+
+	let path;
+
+	try {
+		const base = new URL(`/src/content/${type}/${slug}/`, "file://");
+		path = decodeURIComponent(new URL(href, base).pathname);
+	} catch {
+		return href;
+	}
+
+	const resolved = images[path];
+
+	if (!resolved) {
+		console.warn(`Image not found: ${path}`);
+		return href;
+	}
+
+	return resolved;
+}
+
 function getModule(type, slug, lang) {
 	const key = `/src/content/${type}/${slug}/${lang}.md`;
 	const file = modules[key];
@@ -59,6 +106,12 @@ export function getContent(type, slug, lang = "en") {
 				const id = count > 0 ? `${base}-${count}` : base;
 
 				return `<h${depth} id="${id}">${html}</h${depth}>`;
+			},
+			image({ href, title, text }) {
+				const src = resolveImage(href, type, slug);
+				const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
+
+				return `<img src="${escapeHtml(src)}" alt="${escapeHtml(text)}"${titleAttr} loading="lazy" decoding="async">`;
 			}
 		}
 	});
