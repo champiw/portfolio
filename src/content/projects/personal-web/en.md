@@ -6,7 +6,7 @@ tags:
     - SvelteKit
     - Tailwind
     - Web Development
-repo: "https://github.com/champiw/portfolio"
+github: "https://github.com/champiw/portfolio"
 ---
 
 ## Objectives with this page
