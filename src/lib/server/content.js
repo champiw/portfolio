@@ -82,7 +82,7 @@ export function getAllContent(type, lang = "en") {
 				description: data.description,
 				date: data.date,
 				tags: data.tags ?? [],
-				github: data.github ?? null,
+				github: data.github ?? data.repo ?? null,
 				demo: data.demo ?? null
 			};
 		});
@@ -137,6 +137,8 @@ export function getContent(type, slug, lang = "en") {
 		type,
 		lang,
 		...data,
+		github: data.github ?? data.repo ?? null,
+		demo: data.demo ?? null,
 		content: htmlContent,
 		headings: headings.length >= 3 ? headings : []
 	};

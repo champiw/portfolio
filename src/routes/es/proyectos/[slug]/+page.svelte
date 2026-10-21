@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/state';
+	import ProjectLinks from '$lib/components/ProjectLinks.svelte';
 	import ShareButtons from '$lib/components/ShareButtons.svelte';
 	import TOC from '$lib/components/TOC.svelte';
 
@@ -26,16 +27,11 @@
 				<p>
 					{project.date}
 				</p>
-				{#if project.github}
-					<a
-						href={project.github}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="hover:text-(--accent) transition-colors"
-					>
-						GitHub
-					</a>
-				{/if}
+				<ProjectLinks
+					github={project.github}
+					demo={project.demo}
+					demoLabel="Demo"
+				/>
 			</div>
 
 			<!-- Share Buttons -->
